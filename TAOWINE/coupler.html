@@ -170,22 +170,20 @@
     }
 
     .product-details {
-      display: flex;
-      gap: 30px;
       margin-top: 20px;
     }
 
     /* 图片轮播容器 */
     .product-image-container {
-      flex: 1;
       position: relative;
       border-radius: 8px;
       overflow: hidden;
-      height: 400px;
+      height: 300px;
       background-color: #FFFFFF;
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-bottom: 30px;
     }
 
     .product-image-slide {
@@ -208,7 +206,7 @@
 
     /* 文字信息区域 */
     .product-info {
-      flex: 1;
+      margin-bottom: 30px;
     }
 
     .product-info p {
@@ -252,8 +250,6 @@
       transition: background-color 0.3s;
     }
 
-    
-
     .slide-dot.active {
       background-color: #0066cc;
     }
@@ -266,15 +262,75 @@
       margin-top: 60px;
     }
 
+    /* 新增的下方内容区域样式 */
+    .additional-content {
+      background-color: #f8f9fa;
+      border-radius: 5px;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    .additional-content h3 {
+      color: #0066cc;
+      margin-bottom: 10px;
+    }
+
+    .additional-content ul {
+      padding-left: 20px;
+    }
+
+    .additional-content li {
+      margin-bottom: 8px;
+    }
+
     /* 响应式设计 */
     @media (max-width: 768px) {
-      .product-details {
-        flex-direction: column;
-      }
-      
       .product-image-container {
         height: 300px;
       }
+    }
+
+    /* 产品详情内容布局 */
+    .product-content-layout {
+      display: flex;
+      gap: 30px;
+    }
+
+    .product-content-left {
+      flex: 1;
+    }
+
+    .product-content-right {
+      flex: 1;
+    }
+
+    @media (max-width: 768px) {
+      .product-content-layout {
+        flex-direction: column;
+      }
+    }
+
+.buy-now-btn {
+  background-color: #2f6dca;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 15px auto; 
+  transition: background-color 0.3s;
+  width: 30%;
+  font-weight: bold;
+  display: block; 
+}
+
+.buy-now-btn:hover {
+  background-color: #0052a3;
+}
+
+    .buy-now-btn:hover {
+      background-color: #0052a3;
     }
   </style>
 </head>
@@ -282,12 +338,12 @@
   <header>
     <nav class="navbar">
       <div class="logo">TAOWINE</div>
-      <div class="nav-links"role="navigation" aria-label="主导航">
+      <div class="nav-links" role="navigation" aria-label="主导航">
         <a href="home page.html">首页</a>
         <a href="home page.html">产品中心</a>
-        <a href="#">解决方案</a>
-        <a href="#">服务支持</a>
-        <a href="#">关于我们</a>
+        <a href="https://www.taowine.com/product/xfldzd7d/">解决方案</a>
+        <a href="https://www.taowine.com/about_fu/fwyzc754.html">服务支持</a>
+        <a href="https://www.taowine.com/about/">关于我们</a>
       </div>
     </nav>
   </header>
@@ -323,62 +379,86 @@
             <h2>耦合器</h2>
           </div>
           <div class="product-details">
-            <div class="product-info">
-              <p>耦合器与IO集线器通过 EtherCAT 网口进行通信，为用户的高速数据采集、优化系统配置、简化现场配线、缩短线路问题排查时间,提高系统可靠性提供多种选择。 </p>
-              <p><strong class="main-features">主要特点:</strong></p>
-              <p class="features-content">- 占用空间小<br>
-                 - 走线方便<br>
-                 - 接线端子可插拔<br>
-                 - 组态简单</p>
-              <p></p>
+            <div class="product-content-layout">
+              <!-- 左侧内容 -->
+              <div class="product-content-left">
+                <div class="product-info">
+                  <p>耦合器与IO集线器通过 EtherCAT 网口进行通信，为用户的高速数据采集、优化系统配置、简化现场配线、缩短线路问题排查时间,提高系统可靠性提供多种选择。 </p>
+                  
+                  <p><strong class="main-features">主要特点:</strong></p>
+                  <p class="features-content">- 占用空间小<br>
+                     - 走线方便<br>
+                     - 接线端子可插拔<br>
+                     - 组态简单</p>
+                  
+                  <!-- 耦合器规格表格 -->
+                   <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
+                    <thead>
+                      <tr style="background-color: #f0f8ff;">
+                        <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">项目</th>
+                        <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">规格</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">尺寸</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">125mmx90mmx40mm</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">电源规格</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">24 DC</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">通信协议</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">EtherCAT工业实时总线协议</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">电源保护</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">过流保护,防反接保护</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">I/O扩展能力</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">支持16个I/O模块,最多为512路输入,512输出（后256为虚拟模块）
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
               
-              <!-- 耦合器规格表格 -->
-               <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
-                <thead>
-                  <tr style="background-color: #f0f8ff;">
-                    <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">项目</th>
-                    <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">规格</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">尺寸</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">125mmx90mmx40mm</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">电源规格</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">24 DC</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">通信协议</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">EtherCAT工业实时总线协议</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">电源保护</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">过流保护,防反接保护</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">I/O扩展能力</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">支持16个I/O模块,最多为512路输入,512输出（后256为虚拟模块）
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="product-image-container">
-              <div class="product-image-slide active">
-                <img src="picture/耦合器.png" alt="耦合器" class="product-detail-img">
-              </div>
-              <div class="product-image-slide">
-                <img src="picture/耦合器开盖.jpg" alt="耦合器" class="product-detail-img">
-              </div>
-              <div class="product-image-slide">
-                <img src="picture/耦合器元件.png" alt="耦合器" class="product-detail-img">
-              </div>
-              <div class="slide-controls">
-                <span class="slide-dot active" onclick="currentSlide(0)"></span>
-                <span class="slide-dot" onclick="currentSlide(1)"></span>
-                <span class="slide-dot" onclick="currentSlide(2)"></span>
+              <!-- 右侧内容 -->
+              <div class="product-content-right">
+                <!-- 图片区 -->
+                <div class="product-image-container">
+                  <div class="product-image-slide active">
+                    <img src="picture/耦合器.png" alt="耦合器" class="product-detail-img" style="max-width: 100%; max-height: 70%;">
+                  </div>
+                  <div class="product-image-slide">
+                    <img src="picture/耦合器开盖.jpg" alt="耦合器" class="product-detail-img" style="max-width: 100%; max-height: 70%;">
+                  </div>
+                  <div class="product-image-slide">
+                    <img src="picture/耦合器元件.png" alt="耦合器" class="product-detail-img" style="max-width: 100%; max-height: 70%;">
+                  </div>
+                  <div class="slide-controls">
+                    <span class="slide-dot active" onclick="currentSlide(0)"></span>
+                    <span class="slide-dot" onclick="currentSlide(1)"></span>
+                    <span class="slide-dot" onclick="currentSlide(2)"></span>
+                  </div>
+                </div>
+                
+                <!-- 新增内容区（图片下方） -->
+                <div class="additional-content">
+                  <h3>技术优势</h3>
+                  <ul>
+                    <li>支持高速实时通信</li>
+                    <li>易于扩展和维护</li>
+                    <li>可监控组网集线器掉线和配置状态</li>
+                  </ul>
+                  <h3>应用场景</h3>
+                  <p>配合I/O集线器使用控制设备IO信号</p>
+                  <a href="https://www.taobao.com" target="_blank" style="text-decoration: none;">
+    <button class="buy-now-btn">立即购买</button></a>
+                </div>
               </div>
             </div>
           </div>
@@ -390,80 +470,106 @@
             <h2>I/O集线器</h2>
           </div>
           <div class="product-details">
-            <div class="product-info">
-              <p>ENI-16是一款数字量输入模块。该模块拥有16路数字量，支持源型、漏型输入，每路输入可接一组24V端子，搭配耦合器可配合多种主流主站使用。</p>
-              <p><strong class="main-features">主要特点:</strong></p>
-              <p class="features-content">- 拥有8输入、8输出、16输入、16输出、12输入+4输出、8输入+8输出多种选择<br>
-                 -本体尺寸多种选择,适合多种环境布置<br>
-                 -支持源型、漏型输入<br>
-                 - 抗干扰能力强<br>
-                 - 耦合器模块可配合多种主流主站使用</p>
+            <div class="product-content-layout">
+              <!-- 左侧内容 -->
+              <div class="product-content-left">
+                <div class="product-info">
+                  <p>ENI-16是一款数字量输入模块。该模块拥有16路数字量，支持源型、漏型输入，每路输入可接一组24V端子，搭配耦合器可配合多种主流主站使用。</p>
+                  
+                  <p><strong class="main-features">主要特点:</strong></p>
+                  <p class="features-content">- 拥有8输入、8输出、16输入、16输出、12输入+4输出、8输入+8输出多种选择<br>
+                     -本体尺寸多种选择,适合多种环境布置<br>
+                     -支持源型、漏型输入<br>
+                     - 抗干扰能力强<br>
+                     - 耦合器模块可配合多种主流主站使用</p>
+                  
+                  <!-- 集线器规格表格 -->
+                 <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
+                    <thead>
+                      <tr style="background-color: #f0f8ff;">
+                        <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">项目</th>
+                        <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">规格</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">尺寸</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">8路输入集线器(ENI-8):82.4mmx54mmx55mm<br>
+                          8路输出集线器(ENO-8):82.4mmx54mmx55mm<br>
+                          16路输入集线器(ENI-16):124.4mmx54mmx55mm<br>
+                          16路输出集线器(ENO-16):124.4mmx54mmx55mm<br>
+                          12路输入4路输出集线器:124.4mmx54mmx55mm <br>
+                          8路输入8路输出集线器:124.4mmx54mmx55mm <br>
+                          
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">电源规格</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">24 DC</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">输出方式</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">源性/漏型</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">输入通道</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">8输入,8输出,16输入,16输出,8输入+8输出,12输入+4输出</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">ON电压</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">小于20v</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">OFF电压</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">大于20V</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">输入阻抗</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">120Ω</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">输入动作显示</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">输入为驱动状态时,输入指示灯亮</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
               
-              <!-- 集线器规格表格 -->
-             <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
-                <thead>
-                  <tr style="background-color: #f0f8ff;">
-                    <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">项目</th>
-                    <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">规格</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">尺寸</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">8路输入集线器(ENI-8):82.4mmx54mmx55mm<br>
-                      8路输出集线器(ENO-8):82.4mmx54mmx55mm<br>
-                      16路输入集线器(ENI-16):124.4mmx54mmx55mm<br>
-                      16路输出集线器(ENO-16):124.4mmx54mmx55mm<br>
-                      12路输入4路输出集线器:124.4mmx54mmx55mm <br>
-                      8路输入8路输出集线器:124.4mmx54mmx55mm <br>
-                      
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">电源规格</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">24 DC</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">输出方式</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">源性/漏型</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">输入通道</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">8输入,8输出,16输入,16输出,8输入+8输出,12输入+4输出</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">ON电压</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">小于20v</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">OFF电压</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">大于20V</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">输入阻抗</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">120Ω</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">输入动作显示</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">输入为驱动状态时,输入指示灯亮</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="product-image-container">
-              <div class="product-image-slide active">
-                <img src="picture/集线器.png" alt="集线器" class="product-detail-img">
-              </div>
-              <div class="product-image-slide">
-                <img src="picture/8路IO集线器.png" alt="集线器" class="product-detail-img">
-              </div>
-              <div class="product-image-slide">
-                <img src="picture/16路IO集线器.png" alt="集线器" class="product-detail-img">
-              </div>
-              <div class="slide-controls">
-                <span class="slide-dot active" onclick="currentSlide(0)"></span>
-                <span class="slide-dot" onclick="currentSlide(1)"></span>
-                <span class="slide-dot" onclick="currentSlide(2)"></span>
+              <!-- 右侧内容 -->
+              <div class="product-content-right">
+                <!-- 图片区 -->
+                <div class="product-image-container">
+                  <div class="product-image-slide active">
+                    <img src="picture/集线器.png" alt="集线器" class="product-detail-img">
+                  </div>
+                  <div class="product-image-slide">
+                    <img src="picture/8路IO集线器.png" alt="集线器" class="product-detail-img">
+                  </div>
+                  <div class="product-image-slide">
+                    <img src="picture/16路IO集线器.png" alt="集线器" class="product-detail-img">
+                  </div>
+                  <div class="slide-controls">
+                    <span class="slide-dot active" onclick="currentSlide(0)"></span>
+                    <span class="slide-dot" onclick="currentSlide(1)"></span>
+                    <span class="slide-dot" onclick="currentSlide(2)"></span>
+                  </div>
+                </div>
+                
+                <!-- 新增内容区（图片下方） -->
+                <div class="additional-content">
+                  <h3>技术优势</h3>
+                  <ul>
+                    <li>灵活的I/O配置</li>
+                    <li>高精度信号处理</li>
+                    <li>强大的抗干扰设计</li>
+                    <li>极大缩短排线，调试时间</li>
+                  </ul>
+                  <h3>应用场景</h3>
+                  <p>广泛应用于制造业自动化生产线、机械设备控制等领域。</p>
+                  <a href="https://www.taobao.com" target="_blank" style="text-decoration: none;">
+    <button class="buy-now-btn">立即购买</button></a>
+                </div>
               </div>
             </div>
           </div>
@@ -475,80 +581,105 @@
             <h2>5口百兆交换机</h2>
           </div>
           <div class="product-details">
-            <div class="product-info">
-             <p>5口百兆交换机</p>
-              <p><strong class="main-features">主要特点:</strong></p>
-              <p class="features-content">- 具备 5个百兆以太网自适应电口,所有端口支持全线速转发<br>
-                 - 支持 IEEE 802.3、IEEE 802.3u、IEEE 802.3x协议<br>
-                 - 主机低功耗、无风扇静音设计,即插即用,无需配置,使用简单方便。</p>
+            <div class="product-content-layout">
+              <!-- 左侧内容 -->
+              <div class="product-content-left">
+                <div class="product-info">
+                 <p>5口百兆交换机</p>
+                 
+                 <p><strong class="main-features">主要特点:</strong></p>
+                  <p class="features-content">- 具备 5个百兆以太网自适应电口,所有端口支持全线速转发<br>
+                     - 支持 IEEE 802.3、IEEE 802.3u、IEEE 802.3x协议<br>
+                     - 主机低功耗、无风扇静音设计,即插即用,无需配置,使用简单方便。</p>
+                  
+                  <!-- 5口百兆交换机规格表格 -->
+                  <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
+                    <thead>
+                      <tr style="background-color: #f0f8ff;">
+                        <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">项目</th>
+                        <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">参数</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">尺寸</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">82mmx54mmx55mm</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">标准协议</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">IEEE 802.3、IEEE 802.3u、IEEE 802.3x</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">接口</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">5个10/100M自适应RJ45端口</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">工作模式</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">半双工、全双工,支持MDI/MDI-X自适应</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">交换容量</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">1.6Gbps</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">包转化率</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">1.19Mpps</td>
+                      </tr>
+                       <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">LED</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">1.PWR(电源指示灯),POE(通过网口向外供电指示灯),网口通讯指示灯</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">电源</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">24V DC</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">工作温度</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">0℃ 到 40℃</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">储存温度</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">-40℃ 到 70℃</td>
+                      </tr>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
               
-              <!-- 5口百兆交换机规格表格 -->
-              <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
-                <thead>
-                  <tr style="background-color: #f0f8ff;">
-                    <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">项目</th>
-                    <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">参数</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">尺寸</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">82mmx54mmx55mm</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">标准协议</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">IEEE 802.3、IEEE 802.3u、IEEE 802.3x</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">接口</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">5个10/100M自适应RJ45端口</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">工作模式</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">半双工、全双工,支持MDI/MDI-X自适应</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">交换容量</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">1.6Gbps</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">包转化率</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">1.19Mpps</td>
-                  </tr>
-                   <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">LED</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">1.PWR(电源指示灯),POE(通过网口向外供电指示灯),网口通讯指示灯</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">电源</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">24V DC</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">工作温度</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">0℃ 到 40℃</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">储存温度</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">-40℃ 到 70℃</td>
-                  </tr>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="product-image-container">
-              <div class="product-image-slide active">
-                <img src="picture/五口百兆交换机.png" alt="5口百兆交换机" class="product-detail-img">
-              </div>
-              <div class="product-image-slide">
-                <img src="picture/五口百兆交换机示意图.png" alt="5口百兆交换机" class="product-detail-img">
-              </div>
-              <div class="product-image-slide">
-                <img src="picture/五口百兆交换机.png" alt="5口百兆交换机" class="product-detail-img">
-              </div>
-              <div class="slide-controls">
-                <span class="slide-dot active" onclick="currentSlide(0)"></span>
-                <span class="slide-dot" onclick="currentSlide(1)"></span>
-                <span class="slide-dot" onclick="currentSlide(2)"></span>
+              <!-- 右侧内容 -->
+              <div class="product-content-right">
+                <!-- 图片区 -->
+                <div class="product-image-container">
+                  <div class="product-image-slide active">
+                    <img src="picture/五口百兆交换机.png" alt="5口百兆交换机" class="product-detail-img">
+                  </div>
+                  <div class="product-image-slide">
+                    <img src="picture/五口百兆交换机示意图.png" alt="5口百兆交换机" class="product-detail-img">
+                  </div>
+                  <div class="product-image-slide">
+                    <img src="picture/五口百兆交换机.png" alt="5口百兆交换机" class="product-detail-img">
+                  </div>
+                  <div class="slide-controls">
+                    <span class="slide-dot active" onclick="currentSlide(0)"></span>
+                    <span class="slide-dot" onclick="currentSlide(1)"></span>
+                    <span class="slide-dot" onclick="currentSlide(2)"></span>
+                  </div>
+                </div>
+                
+                <!-- 新增内容区（图片下方） -->
+                <div class="additional-content">
+                  <h3>技术优势</h3>
+                  <ul>
+                    <li>即插即用，无需配置</li>
+                    <li>工业级设计，稳定可靠</li>
+                    <li>低功耗无风扇设计</li>
+                  </ul> 
+                  <h3>应用场景</h3>
+                  <p>适用于中小型工业网络、设备联网和数据传输。</p>
+                  <a href="https://www.taobao.com" target="_blank" style="text-decoration: none;">
+    <button class="buy-now-btn">立即购买</button></a>
+                </div>
               </div>
             </div>
           </div>
@@ -560,78 +691,108 @@
             <h2>8口百兆交换机</h2>
           </div>
           <div class="product-details">
-            <div class="product-info">
-              <p>8口百兆交换机</p>
-              <p><strong class="main-features">主要特点:</strong></p>
-              <p class="features-content">- 具备 8个百兆以太网自适应电口,所有端口支持全线速转发<br>
-                 - 支持 IEEE 802.3、IEEE 802.3u、IEEE 802.3x协议<br>
-                 - 主机低功耗、无风扇静音设计,即插即用,无需配置,使用简单方便。</p>
-              <!-- 8口百兆交换机规格表格 -->
-              <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
-                <thead>
-                  <tr style="background-color: #f0f8ff;">
-                    <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">项目</th>
-                    <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">参数</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">尺寸</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">124.4mmx54mmx55mm</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">标准和协议</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">IEEE 802.3、IEEE 802.3u、IEEE 802.3x</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">接口</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">8个10/100M自适应RJ45端口</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">工作模式</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">半双工、全双工,支持MDI/MDI-X自适应</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">交换容量</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">1.6Gbps</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">包转化率</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">1.19Mpps</td>
-                  </tr>
-                   <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">LED</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">1.PWR(电源指示灯),POE(通过网口向外供电指示灯),网口通讯指示灯</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">电源</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">24V DC</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">工作温度</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">0℃ 到 40℃</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px;">储存温度</td>
-                    <td style="border: 1px solid #ddd; padding: 10px;">-40℃ 到 70℃</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="product-image-container">
-              <div class="product-image-slide active">
-                <img src="picture/八口百兆交换机.png" alt="8口百兆交换机" class="product-detail-img">
+            <div class="product-content-layout">
+              <!-- 左侧内容 -->
+              <div class="product-content-left">
+                <div class="product-info">
+                  <p>8口百兆交换机</p>
+                  
+                  <p><strong class="main-features">主要特点:</strong></p>
+                  <p class="features-content">- 具备 8个百兆以太网自适应电口,所有端口支持全线速转发<br>
+                     - 支持 IEEE 802.3、IEEE 802.3u、IEEE 802.3x协议<br>
+                     - 主机低功耗、无风扇静音设计,即插即用,无需配置,使用简单方便。</p>
+                     
+                  <!-- 8口百兆交换机规格表格 -->
+                  <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
+                    <thead>
+                      <tr style="background-color: #f0f8ff;">
+                        <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">项目</th>
+                        <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">参数</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">尺寸</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">124.4mmx54mmx55mm</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">标准和协议</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">IEEE 802.3、IEEE 802.3u、IEEE 802.3x</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">接口</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">8个10/100M自适应RJ45端口</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">工作模式</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">半双工、全双工,支持MDI/MDI-X自适应</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">交换容量</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">1.6Gbps</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">包转化率</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">1.19Mpps</td>
+                      </tr>
+                       <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">LED</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">1.PWR(电源指示灯),POE(通过网口向外供电指示灯),网口通讯指示灯</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">电源</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">24V DC</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">工作温度</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">0℃ 到 40℃</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">储存温度</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">-40℃ 到 70℃</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-              <div class="product-image-slide">
-                <img src="picture/八口百兆交换机示意图png.png" alt="8口百兆交换机" class="product-detail-img">
-              </div>
-              <div class="product-image-slide">
-                <img src="picture/八口百兆交换机.png" alt="8口百兆交换机" class="product-detail-img">
-              </div>
-              <div class="slide-controls">
-                <span class="slide-dot active" onclick="currentSlide(0)"></span>
-                <span class="slide-dot" onclick="currentSlide(1)"></span>
-                <span class="slide-dot" onclick="currentSlide(2)"></span>
+              
+              <!-- 右侧内容 -->
+              <div class="product-content-right">
+                <!-- 图片区 -->
+                <div class="product-image-container">
+                  <div class="product-image-slide active">
+                    <img src="picture/八口百兆交换机.png" alt="8口百兆交换机" class="product-detail-img">
+                  </div>
+                  <div class="product-image-slide">
+                    <img src="picture/八口百兆交换机示意图png.png" alt="8口百兆交换机" class="product-detail-img">
+                  </div>
+                  <div class="product-image-slide">
+                    <img src="picture/八口百兆交换机.png" alt="8口百兆交换机" class="product-detail-img">
+                  </div>
+                  <div class="slide-controls">
+                    <span class="slide-dot active" onclick="currentSlide(0)"></span>
+                    <span class="slide-dot" onclick="currentSlide(1)"></span>
+                    <span class="slide-dot" onclick="currentSlide(2)"></span>
+                  </div>
+                </div>
+                
+                <!-- 新增内容区（图片下方） -->
+                <div class="additional-content">
+                  <h3>技术优势</h3>
+                  <ul>
+                    <li>更多端口，满足复杂网络需求</li>
+                    <li>工业级稳定性设计</li>
+                    <li>即插即用，免配置</li>
+                  </ul>
+                  
+                  <!-- 立即购买按钮 -->
+                  
+                  
+                  <h3>应用场景</h3>
+                  <p>适用于中大型工业网络、智能制造系统和复杂设备联网。</p>
+                  <a href="https://www.taobao.com" target="_blank" style="text-decoration: none;">
+    <button class="buy-now-btn">立即购买</button></a>
+                </div>
               </div>
             </div>
           </div>
@@ -764,6 +925,18 @@
       } else {
         alert('暂无相关资源可供下载');
       }
+    }
+
+    // 立即购买功能
+    function buyNow(productType) {
+      const productNames = {
+        'coupler': '耦合器',
+        'hub': 'I/O集线器',
+        'switch': '5口百兆交换机',
+        '8口百兆交换机': '8口百兆交换机'
+      };
+      
+      alert(`您已选择购买 ${productNames[productType]}，请联系客服 123456789 获取购买详情。`);
     }
   </script>
 </body>
