@@ -686,8 +686,8 @@
       document.getElementById(productId).classList.add('active');
       event.currentTarget.classList.add('active');
       
-      // 滚动到产品中心区域
-      document.querySelector('.section').scrollIntoView({ behavior: 'smooth' });
+      // 移除了自动滚动到顶部的代码，避免页面跳动
+      // document.querySelector('.section').scrollIntoView({ behavior: 'smooth' });
     }
 
     function changeImage(productId, direction) {
