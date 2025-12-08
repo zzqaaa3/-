@@ -49,11 +49,25 @@
       text-decoration: none;
       color: #333;
       font-size: 16px;
-      transition: color 0.3s;
+      transition: all 0.3s;
+      position: relative;
+      padding: 5px 10px;
+      border-radius: 4px;
     }
 
     .nav-links a:hover {
       color: #0066cc;
+      background-color: rgba(0, 102, 204, 0.1);
+    }
+
+    .nav-links a:active {
+      background-color: rgba(0, 102, 204, 0.2);
+      transform: scale(0.95);
+    }
+
+    .nav-links a:focus {
+      outline: 2px solid #0066cc;
+      outline-offset: 2px;
     }
 
     .container {
@@ -84,12 +98,6 @@
       margin-bottom: 20px;
     }
 
-    .product-description {
-      color: #555;
-      line-height: 1.6;
-      margin-bottom: 30px;
-    }
-
     .content-wrapper {
       display: flex;
       gap: 100px;
@@ -107,7 +115,6 @@
       margin-top: 0; 
     }
 
-    /* 轮播图样式 */
     .slideshow-container {
       max-width: 100%;
       position: relative;
@@ -119,7 +126,6 @@
       width: 100%;
     }
      
-    /* 轮播图高度 */
     .slide-img-container {
       width: 100%;
       padding-bottom: 55%; 
@@ -144,7 +150,6 @@
       display: none; 
     }
 
-    /* 淡入动画 */
     .fade {
       animation-name: fade;
       animation-duration: 1.5s;
@@ -155,7 +160,6 @@
       to {opacity: 1}
     }
 
-    /* 选项卡样式 */
     .tabs {
       display: flex;
       border-bottom: 2px solid #eee;
@@ -311,7 +315,6 @@
       }
     }
 
-    /* 产品概览图片大小样式修改 */
     .overview-image-container {
       position: relative;
       width: 100%;
@@ -339,7 +342,6 @@
       display: block;
     }
 
-    /* 切换按钮样式 */
     .overview-prev, .overview-next {
       cursor: pointer;
       position: absolute;
@@ -371,7 +373,6 @@
       border-radius: 0 3px 3px 0;
     }
 
-    /* 图片指示器 */
     .overview-dots {
       text-align: center;
       padding: 15px 0;
@@ -392,7 +393,6 @@
       background-color: #0066cc;
     }
 
-    /* 优化的功能列表样式 */
     .features-list {
       background: #ffffff;
       border-radius: 8px;
@@ -451,6 +451,43 @@
       line-height: 1.6;
       color: #333;
     }
+
+    .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: #e9f0f9;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: rgba(0, 102, 204, 0.1);
+}
   </style>
 </head>
 <body>
@@ -459,10 +496,16 @@
       <div class="logo">TAOWINE</div>
       <div class="nav-links" role="navigation" aria-label="主导航">
         <a href="home page.html">首页</a>
-        <a href="home page.html">产品中心</a>
-        <a href="https://www.taowine.com/product/xfldzd7d/"target="_blank">解决方案</a>
-        <a href="https://www.taowine.com/about_fu/fwyzc754.html"target="_blank">服务支持</a>
-        <a href="https://www.taowine.com/about/"target="_blank">关于我们</a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">产品中心</a>
+          <div class="dropdown-content">
+            <a href="NLP.html" onclick="showProduct('product1')">自然语言</a>
+            <a href="home page.html" onclick="showProduct('product2')">远程IO模块</a>
+            <a href="#" onclick="showProduct('product3')">飞达</a>
+          </div>
+        <a href="https://www.taowine.com/product/xfldzd7d/" target="_blank">解决方案</a>
+        <a href="https://www.taowine.com/about_fu/fwyzc754.html" target="_blank">服务支持</a>
+        <a href="https://www.taowine.com/about/" target="_blank">关于我们</a>
       </div>
     </nav>
   </header>
@@ -499,7 +542,6 @@
             </div>
           </div>
           
-          <!-- 图片轮播区域 -->
           <div class="image-gallery">
             <div class="slideshow-container">
               <div class="slide fade">
@@ -520,12 +562,10 @@
                 </div>
               </div>
               
-              
               <a class="prev" onclick="plusSlides(-1)">❮</a>
               <a class="next" onclick="plusSlides(1)">❯</a>
             </div>
             
-          
             <div class="dot-container">
               <span class="dot" onclick="currentSlide(1)"></span>
               <span class="dot" onclick="currentSlide(2)"></span>
@@ -536,14 +576,12 @@
       </div>
     </div>
 
-    <!-- 选项卡导航 -->
     <div class="tabs">
       <button class="tab-button active" data-tab="overview">产品概览</button>
       <button class="tab-button" data-tab="specs">规格参数</button>
       <button class="tab-button" data-tab="downloads">资料下载</button>
     </div>
 
-    <!-- 选项卡内容 -->
     <div class="tab-content active" id="overview-content">
       <div class="section">
         <h2 class="section-title">产品概览</h2>
@@ -559,7 +597,6 @@
             <span class="overview-dot" onclick="currentOverviewSlide(3)"></span>
           </div>
         </div>
-
 
         <div class="product-overview-box">
           <p>1.电控BOM一键导入</p>
@@ -665,33 +702,28 @@
   </footer>
 
   <script>
-    // 选项卡切换功能
     document.addEventListener('DOMContentLoaded', function() {
       const tabButtons = document.querySelectorAll('.tab-button');
       const tabContents = document.querySelectorAll('.tab-content');
       
       tabButtons.forEach(button => {
         button.addEventListener('click', () => {
-          // 移除所有活动状态
           tabButtons.forEach(btn => btn.classList.remove('active'));
           tabContents.forEach(content => content.classList.remove('active'));
           
-          // 添加当前活动状态
           button.classList.add('active');
           const tabId = button.getAttribute('data-tab');
           document.getElementById(`${tabId}-content`).classList.add('active');
         });
       });
       
-      // 轮播图功能(仅自动播放）
       let slideIndex = 1;
       showSlides(slideIndex);
       
-      // 自动播放
       setInterval(() => {
         slideIndex++;
         showSlides(slideIndex);
-      }, 3000); // 每3秒切换一次
+      }, 3000);
       
       function showSlides(n) {
         let i;
@@ -708,7 +740,6 @@
       }
     });
 
-    // 产品概览图片切换功能
     let overviewSlideIndex = 1;
     showOverviewSlides(overviewSlideIndex);
 

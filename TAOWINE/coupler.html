@@ -43,18 +43,33 @@
     .nav-links {
       display: flex;
       gap: 24px;
+      align-items: center; 
     }
 
-    .nav-links a {
-      text-decoration: none;
-      color: #333;
-      font-size: 16px;
-      transition: color 0.3s;
-    }
+     .nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: all 0.3s;
+    position: relative;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
 
-    .nav-links a:hover {
-      color: #0066cc;
-    }
+  .nav-links a:hover {
+    color: #0066cc;
+    background-color: rgba(0, 102, 204, 0.1);
+  }
+
+  .nav-links a:active {
+    background-color: rgba(0, 102, 204, 0.2);
+    transform: scale(0.95);
+  }
+
+  .nav-links a:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+  }
 
     .main-container {
       display: flex;
@@ -65,7 +80,6 @@
       gap: 30px;
     }
 
-    /* 大标题样式 */
     .main-title {
       text-align: center;
       font-size: 32px;
@@ -74,14 +88,12 @@
       padding: 15px 0;
     }
 
-    /* 内容容器 */
     .content-wrapper {
       display: flex;
       gap: 15px;
       width: 100%;
     }
 
-    /* 左侧导航栏样式 */
     .sidebar {
       width: 180px;
       background-color: white;
@@ -114,7 +126,6 @@
       font-weight: bold;
     }
 
-    /* 下载按钮样式 */
     .download-section {
       padding: 20px;
       border-top: 1px solid #eee;
@@ -141,7 +152,6 @@
       cursor: not-allowed;
     }
 
-    /* 右侧内容区域样式 */
     .content-area {
       flex: 1;
       background-color: white;
@@ -173,7 +183,6 @@
       margin-top: 20px;
     }
 
-    /* 图片轮播容器 */
     .product-image-container {
       position: relative;
       border-radius: 8px;
@@ -204,7 +213,6 @@
       object-fit: contain;
     }
 
-    /* 文字信息区域 */
     .product-info {
       margin-bottom: 30px;
     }
@@ -214,15 +222,49 @@
       margin-bottom: 15px;
     }
 
-    /* 特色字体样式 - 主要特点 */
     .main-features {
       font-weight: bold;
       color: #0066cc;
       font-size: 1.1em;
       text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
     }
+    .dropdown {
+  position: relative;
+  display: inline-block;
+}
 
-    /* 主要特点内容背景色 */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: #e9f0f9;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: rgba(0, 102, 204, 0.1);
+}
+
     .features-content {
       background-color: #e6f2ff;
       padding: 15px;
@@ -231,7 +273,6 @@
       margin-bottom: 15px;
     }
 
-    /* 轮播控制按钮 */
     .slide-controls {
       position: absolute;
       bottom: 20px;
@@ -262,7 +303,6 @@
       margin-top: 60px;
     }
 
-    /* 新增的下方内容区域样式 */
     .additional-content {
       background-color: #f8f9fa;
       border-radius: 5px;
@@ -283,14 +323,16 @@
       margin-bottom: 8px;
     }
 
-    /* 响应式设计 */
     @media (max-width: 768px) {
       .product-image-container {
         height: 300px;
       }
+      
+      .product-content-layout {
+        flex-direction: column;
+      }
     }
 
-    /* 产品详情内容布局 */
     .product-content-layout {
       display: flex;
       gap: 30px;
@@ -304,30 +346,20 @@
       flex: 1;
     }
 
-    @media (max-width: 768px) {
-      .product-content-layout {
-        flex-direction: column;
-      }
+    .buy-now-btn {
+      background-color: #2f6dca;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 15px auto; 
+      transition: background-color 0.3s;
+      width: 30%;
+      font-weight: bold;
+      display: block; 
     }
-
-.buy-now-btn {
-  background-color: #2f6dca;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  font-size: 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  margin: 15px auto; 
-  transition: background-color 0.3s;
-  width: 30%;
-  font-weight: bold;
-  display: block; 
-}
-
-.buy-now-btn:hover {
-  background-color: #0052a3;
-}
 
     .buy-now-btn:hover {
       background-color: #0052a3;
@@ -340,7 +372,14 @@
       <div class="logo">TAOWINE</div>
       <div class="nav-links" role="navigation" aria-label="主导航">
         <a href="home page.html">首页</a>
-        <a href="home page.html">产品中心</a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">产品中心</a>
+          <div class="dropdown-content">
+            <a href="NLP.html" onclick="showProduct('product1')">自然语言</a>
+            <a href="home page.html" onclick="showProduct('product2')">远程IO模块</a>
+            <a href="#" onclick="showProduct('product3')">飞达</a>
+          </div>
+        </div>
         <a href="https://www.taowine.com/product/xfldzd7d/">解决方案</a>
         <a href="https://www.taowine.com/about_fu/fwyzc754.html">服务支持</a>
         <a href="https://www.taowine.com/about/">关于我们</a>
@@ -349,13 +388,9 @@
   </header>
 
   <div class="main-container">
-    <!-- 大标题 -->
     <div class="main-title">远程IO模块组网</div>
     
-    <!-- 内容容器 -->
     <div class="content-wrapper">
-
-      <!-- 产品选择栏 -->
       <div class="sidebar">
         <ul>
           <li class="active" onclick="showProduct('coupler')">耦合器</li>
@@ -363,7 +398,6 @@
           <li onclick="showProduct('switch')">5口百兆交换机</li>
           <li onclick="showProduct('8口百兆交换机')">8口百兆交换机</li>
         </ul>
-        <!-- 资源下载 -->
         <div class="download-section">
           <button class="download-btn" onclick="downloadResource()" id="downloadBtn">
             <a href="#" class="btn">使用手册下载</a>
@@ -371,16 +405,13 @@
         </div>
       </div>
 
-      <!-- 右侧内容区域 -->
       <div class="content-area">
-        <!-- 耦合器内容 -->
         <div id="coupler" class="product-content active">
           <div class="product-header">
             <h2>耦合器</h2>
           </div>
           <div class="product-details">
             <div class="product-content-layout">
-              <!-- 左侧内容 -->
               <div class="product-content-left">
                 <div class="product-info">
                   <p>耦合器与IO集线器通过 EtherCAT 网口进行通信，为用户的高速数据采集、优化系统配置、简化现场配线、缩短线路问题排查时间,提高系统可靠性提供多种选择。 </p>
@@ -391,8 +422,7 @@
                      - 接线端子可插拔<br>
                      - 组态简单</p>
                   
-                  <!-- 耦合器规格表格 -->
-                   <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
+                  <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
                     <thead>
                       <tr style="background-color: #f0f8ff;">
                         <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">项目</th>
@@ -426,9 +456,7 @@
                 </div>
               </div>
               
-              <!-- 右侧内容 -->
               <div class="product-content-right">
-                <!-- 图片区 -->
                 <div class="product-image-container">
                   <div class="product-image-slide active">
                     <img src="picture/耦合器.png" alt="耦合器" class="product-detail-img" style="max-width: 100%; max-height: 70%;">
@@ -446,7 +474,6 @@
                   </div>
                 </div>
                 
-                <!-- 新增内容区（图片下方） -->
                 <div class="additional-content">
                   <h3>技术优势</h3>
                   <ul>
@@ -464,14 +491,12 @@
           </div>
         </div>
 
-        <!-- 集线器内容 -->
         <div id="hub" class="product-content">
           <div class="product-header">
             <h2>I/O集线器</h2>
           </div>
           <div class="product-details">
             <div class="product-content-layout">
-              <!-- 左侧内容 -->
               <div class="product-content-left">
                 <div class="product-info">
                   <p>ENI-16是一款数字量输入模块。该模块拥有16路数字量，支持源型、漏型输入，每路输入可接一组24V端子，搭配耦合器可配合多种主流主站使用。</p>
@@ -483,8 +508,7 @@
                      - 抗干扰能力强<br>
                      - 耦合器模块可配合多种主流主站使用</p>
                   
-                  <!-- 集线器规格表格 -->
-                 <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
+                  <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
                     <thead>
                       <tr style="background-color: #f0f8ff;">
                         <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">项目</th>
@@ -536,9 +560,7 @@
                 </div>
               </div>
               
-              <!-- 右侧内容 -->
               <div class="product-content-right">
-                <!-- 图片区 -->
                 <div class="product-image-container">
                   <div class="product-image-slide active">
                     <img src="picture/集线器.png" alt="集线器" class="product-detail-img">
@@ -556,7 +578,6 @@
                   </div>
                 </div>
                 
-                <!-- 新增内容区（图片下方） -->
                 <div class="additional-content">
                   <h3>技术优势</h3>
                   <ul>
@@ -575,14 +596,12 @@
           </div>
         </div>
 
-        <!-- 5口百兆交换机内容 -->
         <div id="switch" class="product-content">
           <div class="product-header">
             <h2>5口百兆交换机</h2>
           </div>
           <div class="product-details">
             <div class="product-content-layout">
-              <!-- 左侧内容 -->
               <div class="product-content-left">
                 <div class="product-info">
                  <p>5口百兆交换机</p>
@@ -592,7 +611,6 @@
                      - 支持 IEEE 802.3、IEEE 802.3u、IEEE 802.3x协议<br>
                      - 主机低功耗、无风扇静音设计,即插即用,无需配置,使用简单方便。</p>
                   
-                  <!-- 5口百兆交换机规格表格 -->
                   <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
                     <thead>
                       <tr style="background-color: #f0f8ff;">
@@ -647,9 +665,7 @@
                 </div>
               </div>
               
-              <!-- 右侧内容 -->
               <div class="product-content-right">
-                <!-- 图片区 -->
                 <div class="product-image-container">
                   <div class="product-image-slide active">
                     <img src="picture/五口百兆交换机.png" alt="5口百兆交换机" class="product-detail-img">
@@ -667,7 +683,6 @@
                   </div>
                 </div>
                 
-                <!-- 新增内容区（图片下方） -->
                 <div class="additional-content">
                   <h3>技术优势</h3>
                   <ul>
@@ -685,14 +700,12 @@
           </div>
         </div>
 
-        <!-- 8口百兆交换机内容 -->
         <div id="8口百兆交换机" class="product-content">
           <div class="product-header">
             <h2>8口百兆交换机</h2>
           </div>
           <div class="product-details">
             <div class="product-content-layout">
-              <!-- 左侧内容 -->
               <div class="product-content-left">
                 <div class="product-info">
                   <p>8口百兆交换机</p>
@@ -702,7 +715,6 @@
                      - 支持 IEEE 802.3、IEEE 802.3u、IEEE 802.3x协议<br>
                      - 主机低功耗、无风扇静音设计,即插即用,无需配置,使用简单方便。</p>
                      
-                  <!-- 8口百兆交换机规格表格 -->
                   <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
                     <thead>
                       <tr style="background-color: #f0f8ff;">
@@ -756,9 +768,7 @@
                 </div>
               </div>
               
-              <!-- 右侧内容 -->
               <div class="product-content-right">
-                <!-- 图片区 -->
                 <div class="product-image-container">
                   <div class="product-image-slide active">
                     <img src="picture/八口百兆交换机.png" alt="8口百兆交换机" class="product-detail-img">
@@ -776,7 +786,6 @@
                   </div>
                 </div>
                 
-                <!-- 新增内容区（图片下方） -->
                 <div class="additional-content">
                   <h3>技术优势</h3>
                   <ul>
@@ -784,9 +793,6 @@
                     <li>工业级稳定性设计</li>
                     <li>即插即用，免配置</li>
                   </ul>
-                  
-                  <!-- 立即购买按钮 -->
-                  
                   
                   <h3>应用场景</h3>
                   <p>适用于中大型工业网络、智能制造系统和复杂设备联网。</p>
@@ -807,49 +813,38 @@
   </footer>
 
   <script>
-    // 当前激活的产品
     let currentProduct = 'coupler';
-    // 当前显示的幻灯片索引
     let currentSlides = {};
 
-    // 初始化每个产品的当前幻灯片索引
     document.addEventListener('DOMContentLoaded', function() {
       const products = ['coupler', 'hub', 'switch', '8口百兆交换机'];
       products.forEach(product => {
         currentSlides[product] = 0;
       });
       
-      // 启动自动轮播
       setInterval(autoSlide, 2000);
     });
 
     function showProduct(productType) {
-      // 隐藏所有产品内容
       const contents = document.querySelectorAll('.product-content');
       contents.forEach(content => {
         content.classList.remove('active');
       });
 
-      // 显示选中的产品内容
       const selectedContent = document.getElementById(productType);
       if (selectedContent) {
         selectedContent.classList.add('active');
       }
 
-      // 更新左侧导航栏的活动状态
       const items = document.querySelectorAll('.sidebar li');
       items.forEach(item => {
         item.classList.remove('active');
       });
 
-      // 设置当前选中项为活动状态
       event.target.classList.add('active');
-      
-      // 更新当前产品
       currentProduct = productType;
     }
 
-    // 自动切换幻灯片
     function autoSlide() {
       const activeProduct = document.querySelector('.product-content.active');
       if (!activeProduct) return;
@@ -857,19 +852,15 @@
       const slides = activeProduct.querySelectorAll('.product-image-slide');
       const dots = activeProduct.querySelectorAll('.slide-dot');
       
-      // 隐藏当前幻灯片
       slides[currentSlides[currentProduct]].classList.remove('active');
       dots[currentSlides[currentProduct]].classList.remove('active');
       
-      // 切换到下一个幻灯片
       currentSlides[currentProduct] = (currentSlides[currentProduct] + 1) % slides.length;
       
-      // 显示新幻灯片
       slides[currentSlides[currentProduct]].classList.add('active');
       dots[currentSlides[currentProduct]].classList.add('active');
     }
 
-    // 手动切换幻灯片
     function currentSlide(index) {
       const activeProduct = document.querySelector('.product-content.active');
       if (!activeProduct) return;
@@ -877,25 +868,20 @@
       const slides = activeProduct.querySelectorAll('.product-image-slide');
       const dots = activeProduct.querySelectorAll('.slide-dot');
       
-      // 隐藏当前幻灯片
       slides[currentSlides[currentProduct]].classList.remove('active');
       dots[currentSlides[currentProduct]].classList.remove('active');
       
-      // 切换到指定幻灯片
       currentSlides[currentProduct] = index;
       
-      // 显示新幻灯片
       slides[currentSlides[currentProduct]].classList.add('active');
       dots[currentSlides[currentProduct]].classList.add('active');
     }
 
-    // 资源下载功能
     function downloadResource() {
-      // 定义不同产品的下载资源
       const resources = {
         'coupler': {
-          url: 'word/远程IO集线器使用手册_V2.0_2025.docx',
-          filename: '远程IO集线器使用手册_V2.0_2025.docx'
+          url: 'word/EtherCAT总线耦合器+IO集线器使用手册V2.0_2025.docx',
+          filename: 'EtherCAT总线耦合器+IO集线器使用手册V2.0_2025.docx'
         },
         'hub': {
           url: 'word/远程IO集线器使用手册_V2.0_2025.docx',
@@ -911,11 +897,9 @@
         }
       };
 
-      // 获取当前产品的资源信息
       const resource = resources[currentProduct];
       
       if (resource) {
-        // 创建一个隐藏的下载链接并触发下载
         const link = document.createElement('a');
         link.href = resource.url;
         link.download = resource.filename;
@@ -927,7 +911,6 @@
       }
     }
 
-    // 立即购买功能
     function buyNow(productType) {
       const productNames = {
         'coupler': '耦合器',

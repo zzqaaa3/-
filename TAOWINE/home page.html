@@ -43,17 +43,32 @@
     .nav-links {
       display: flex;
       gap: 24px;
+      align-items: center; 
     }
 
     .nav-links a {
       text-decoration: none;
       color: #333;
       font-size: 16px;
-      transition: color 0.3s;
+      transition: all 0.3s;
+      position: relative;
+      padding: 5px 10px;
+      border-radius: 4px;
     }
 
     .nav-links a:hover {
       color: #0066cc;
+      background-color: rgba(0, 102, 204, 0.1);
+    }
+
+    .nav-links a:active {
+      background-color: rgba(0, 102, 204, 0.2);
+      transform: scale(0.95);
+    }
+
+    .nav-links a:focus {
+      outline: 2px solid #0066cc;
+      outline-offset: 2px;
     }
 
     .hero {
@@ -229,15 +244,13 @@
       margin-top: 60px;
     }
 
-    /* 图片翻页功能 */
     .image-gallery {
       position: relative;
       margin: 20px 0;
       width: 100%;
     }
 
-    .gallery-container 
-    {
+    .gallery-container {
       position: relative;
       width: 100%;
       height: 300px;
@@ -281,7 +294,6 @@
       right: 10px;
     }
 
-    /* 案例样式 */
     .case-study-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -315,7 +327,6 @@
       line-height: 1.5;
     }
 
-    /* 特色服务 */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -353,7 +364,6 @@
       line-height: 1.5;
     }
 
-    /* 技术优势 */
     .advantages-section {
       background: white;
       border-radius: 8px;
@@ -383,6 +393,44 @@
     .advantage-text {
       font-size: 16px;
       color: #666;
+    }
+
+    /* 下拉菜单样式 */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 4px;
+      top: 100%;
+      left: 0;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background-color 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #e9f0f9;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: rgba(0, 102, 204, 0.1);
     }
 
     @media (max-width: 768px) {
@@ -419,7 +467,16 @@
       <div class="logo">TAOWINE</div>
       <div class="nav-links" role="navigation" aria-label="主导航">
         <a href="home page.html">首页</a>
-        <a href="home page.html">产品中心</a>
+        
+        <!-- 产品中心下拉菜单 -->
+        <div class="dropdown">
+          <a href="#" class="dropbtn">产品中心</a>
+          <div class="dropdown-content">
+            <a href="NLP.html" onclick="showProduct('product1')">自然语言</a>
+            <a href="coupler.html" onclick="showProduct('product2')">远程IO模块</a>
+            <a href="#" onclick="showProduct('product3')">飞达</a>
+          </div>
+        
         <a href="https://www.taowine.com/product/xfldzd7d/"target="_blank">解决方案</a>
         <a href="https://www.taowine.com/about_fu/fwyzc754.html"target="_blank">服务支持</a>
         <a href="https://www.taowine.com/about/"target="_blank">关于我们</a>
@@ -454,7 +511,7 @@
           </div>
           <div class="buttons">
             <a href="NLP.html" class="btn btn-primary">查看详情</a>
-            <a href="https://www.taobao.com" class="btn btn-secondary">点击购买</a>
+            <a href="https://www.taobao.com" target="_blank" style="text-decoration: none;" class="btn btn-secondary">点击购买</a>
           </div>
         </div>
 
@@ -473,7 +530,7 @@
           </div>
           <div class="buttons">
             <a href="coupler.html" class="btn btn-primary">查看详情</a>
-            <a href="https://www.taobao.com" class="btn btn-secondary">点击购买</a>
+            <a href="https://www.taobao.com" target="_blank" style="text-decoration: none;" class="btn btn-secondary">点击购买</a>
           </div>
         </div>
         <div class="product-detail" id="product3">
@@ -493,7 +550,7 @@
           </div>
           <div class="buttons">
             <a href="detail3.html" class="btn btn-primary">查看详情</a>
-            <a href="https://www.taobao.com" class="btn btn-secondary">点击购买</a>
+            <a href="https://www.taobao.com" target="_blank" style="text-decoration: none;" class="btn btn-secondary">点击购买</a>
           </div>
         </div>
       </div>
@@ -520,30 +577,38 @@
   </section>
 
   <section class="section">
-    <h2 class="section-title">我们的服务</h2>
-    <div class="services-grid">
+  <h2 class="section-title">我们的服务</h2>
+  <div class="services-grid">
+    <a href="https://www.taowine.com/product/xfldzd7d/" target="_blank" style="text-decoration: none;">
       <div class="service-card">
         <div class="service-icon">⚙️</div>
         <h3>系统集成</h3>
         <p>提供完整的工业自动化系统集成服务，从设计到实施一站式解决</p>
       </div>
+    </a>
+    <a href="https://www.taowine.com/about_fu/fwyzc754.html" target="_blank" style="text-decoration: none;">
       <div class="service-card">
         <div class="service-icon">🛠️</div>
         <h3>技术支持</h3>
         <p>专业技术团队提供7x24小时在线技术支持和现场服务</p>
       </div>
+    </a>
+    <a href="https://www.taowine.com/about_lxwm/lxwmafa.html" target="_blank" style="text-decoration: none;">
       <div class="service-card">
         <div class="service-icon">🎓</div>
         <h3>培训服务</h3>
         <p>为客户技术人员提供专业培训，提升操作维护能力</p>
       </div>
+    </a>
+    <a href="https://www.taowine.com/about_fu/fwyzc754.html" target="_blank" style="text-decoration: none;">
       <div class="service-card">
         <div class="service-icon">🔄</div>
         <h3>升级维护</h3>
         <p>定期系统升级和预防性维护，确保设备长期稳定运行</p>
       </div>
-    </div>
-  </section>
+    </a>
+  </div>
+</section>
 
   <section class="section">
     <h2 class="section-title">未来展望</h2>
@@ -584,42 +649,29 @@
   </footer>
 
   <script>
-    // 储存每个图片
     const productImages = {
       'product1': [
         'picture/自然语言.png',
         'picture/自然语言流程编辑界面.png',
         "picture/自然语言配置.png"
-        
       ],
       'product2': [
         'picture/逻辑组网.png',
         'picture/耦合器直连.png',
         'picture/单层交换机级联.png',
         'picture/多层交换机级联.png'
-
-      
       ],
       'product3': [
         'picture/远程IO模块.png'
-
-
-      ],
-      
-      
+      ]
     };
 
-    // 存储当前显示的图片索引
     const currentImageIndex = {
       'product1': 0,
       'product2': 0,
       'product3': 0
     };
 
-    window.onload = function() {
-      // 初始化产品图片
-    };
-    
     function showProduct(productId) {
       const productDetails = document.querySelectorAll('.product-detail');
       productDetails.forEach(detail => {
@@ -633,23 +685,23 @@
       
       document.getElementById(productId).classList.add('active');
       event.currentTarget.classList.add('active');
+      
+      // 滚动到产品中心区域
+      document.querySelector('.section').scrollIntoView({ behavior: 'smooth' });
     }
 
     function changeImage(productId, direction) {
       const images = productImages[productId];
       if (!images || images.length === 0) return;
 
-      // 更新索引
       currentImageIndex[productId] += direction;
       
-      // 循环处理
       if (currentImageIndex[productId] >= images.length) {
         currentImageIndex[productId] = 0;
       } else if (currentImageIndex[productId] < 0) {
         currentImageIndex[productId] = images.length - 1;
       }
       
-      // 更新图片
       const imageElement = document.getElementById(`${productId}-image`);
       if (imageElement) {
         imageElement.src = images[currentImageIndex[productId]];
@@ -657,5 +709,4 @@
     }
   </script>
 </body>
-
 </html>
